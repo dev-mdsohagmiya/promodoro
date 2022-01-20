@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+<body>
+    <div class="root">
+        <div class="rootContainer">
+          <div class="time ">
+             <div class="timeContainer container">
+              <div class="inputTime py-4">
+                <div class="row">
+                    <div class="col-md 10 col-8">
+                          <input class="form-control inputTime" type="text" placeholder="Set minutes...">
+                          <small  class="text-warning  mt-1 showWarning" for=""></small>
+                        
+                    </div>
+                    <div class=" col-md-2 col-4">
+                       <button class="btn w-100 "><b  class="text-white fastStart">START</b></button>
+                    </div>
+                 
+                </div>
+              </div>
+              <div class="showTime">
+                  <div class="showTimeContainer text-center showTime">
+                      <span class="minute">05</span>
+                      <span>:</span>
+                      <span class="second">05</span>
+                  </div>
+              </div>
+              <div class="start_stop">
+                  <button class="btn w-100 text-white lastStart"><span ><b>START</b></span></button>
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+      <script src="./index.js"></script>
+</body>
+</html>
