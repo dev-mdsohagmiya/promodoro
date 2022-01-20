@@ -5,24 +5,26 @@ let elements = {
   lastStart: document.querySelector(".lastStart"),
   showTime: document.querySelector(".showTime .showTimeContainer"),
   start_stop: document.querySelector(".start_stop"),
-
   startStopBtn: document.querySelector(".start_stop button span b"),
+  startStopBtn1: document.querySelector(".start_stop button"),
 };
 let totalMinutes = 0;
 let totalSeconds = 0;
 let closeInterval1 = null;
 let startStopBtnText = "START";
-// elements.lastStart.addEventListener("click",()=>{
-//   totalMinutes = 5
-//   oneMinute()
-// })
+elements.lastStart.addEventListener("click",()=>{
+console.log("start buttom is clicked")
+   if(closeInterval1 === null){
+     oneMinute(5)
+   }
+})
 
-elements.fastStart.addEventListener("click", () => oneMinute());
+elements.fastStart.addEventListener("click", () => oneMinute(elements.inputTime.value));
 
-function oneMinute() {
+function oneMinute(value) {
   document.querySelector(".showWarning").innerHTML = "";
 
-  let userValue = elements.inputTime.value;
+  let userValue = value
   if (1 <= userValue && 500 >= userValue) {
     if (closeInterval1 !== null) {
       clearInterval(closeInterval1);
@@ -41,19 +43,20 @@ function oneMinute() {
       setTimeout(() => {
         totalMinutes--;
         totalSeconds = 59;
+        
         showUpdateTime();
         function startStop() {
           closeInterval1 = setInterval(() => {
             totalSeconds--;
             function click() {
-              elements.startStopBtn.addEventListener("click", () => {
+              elements.startStopBtn1.addEventListener("click", () => {
                 if (startStopBtnText === "STOP") {
                   clearInterval(closeInterval1);
                   startStopBtnText = "START";
                   elements.startStopBtn.innerHTML = startStopBtnText;
                   showUpdateTime();
                 }
-                elements.startStopBtn.addEventListener("click", () => {
+                elements.startStopBtn1.addEventListener("click", () => {
                   if (startStopBtnText === "START") {
                     startStopBtnText = "STOP";
                     elements.startStopBtn.innerHTML = startStopBtnText;
@@ -81,6 +84,7 @@ function oneMinute() {
         }
         startStop();
       }, 1000);
+      closeInterval1  =undefined
     }
 
     runningMnt();
